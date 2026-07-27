@@ -113,6 +113,8 @@ for i in range(len(medals_array[:,0])):  #loop through the entire medal table
         if medals_array[i][0] == population_array[j][0]:  #when the country names match, the population data gets copied to the medals array
             medals_array[i][4] = int(population_array[j][1].replace(",", ""))  #the population data gets converted from a string to an integer
             break
+        elif j == (len(population_array[:,0])-1):  #error handling:  print error message when country name is not found in population array  
+            print("!!!!ERROR!!!! \nCould not find a country name match in the population table for " + medals_array[i][0] + "\nAdd/Change the name of this country in the population table, so it matches with the name in the medal table\n\n")
     
 
     total_population += medals_array[i,4]  #the total population is the sum of all the individual countries
